@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/*
+5) Faça um programa que:
+a) Lê um número inteiro N >= 1. Só prossiga quando o valor for digitado corretamente.
+b) Lê as notas de N alunos (N digitado no item a), não permita que usuário digite uma nota < 0 ou > 10.
+c) Imprima a média da turma, a maior e a menor nota com 2 casas decimais cada.
+*/
+
+
+void main()
+{
+	setlocale(LC_ALL, "portuguese");
+
+    int N;
+    float nota;
+    float somaNota = 0;
+    float maiorNota = -999;
+    float menorNota = 999;
+    float maxNota = 10;
+    float minNota = 0;
+    float media;
+    int i;
+    int pass;
+
+    printf("Informe o número de Alunos:\n");
+    scanf("%i", &N);
+    while(N <= 0)
+    {
+        printf("Número inválido, digite novamente.\n");
+        scanf("%i", &N);
+    }
+
+    printf("\nInforme as notas\n");
+    for(i = 0; i < N ; i++)
+    {
+    	pass = 0;
+        while(pass == 0)
+        {
+        printf("%ia nota: ", i+1);
+        scanf("%f", &nota);
+	        if(nota < minNota)
+	        {
+	        	printf("\n*Valor inválido, digite uma nota de 0 a 10*\n");
+	            pass = 0;
+	        }
+	        else if(nota > maxNota)
+	        {
+				printf("\n*Valor inválido, digite uma nota de 0 a 10*\n");
+	            pass = 0;
+			}
+	        else
+	        {
+	            pass = 1;
+	        }
+		}
+
+	        somaNota = somaNota + nota;
+
+	        if(maiorNota < nota)
+	        {
+	            maiorNota = nota;
+	        }
+	        else if(nota < menorNota)
+	        {
+	            menorNota = nota;
+	        }
+	        else
+	        {
+			}
+
+        fflush(stdin);
+    }
+
+    media = somaNota/(float)N;
+
+    printf("Média da turma: %.2f\nMaior nota: %.2f\nMenor nota: %.2f", media, maiorNota, menorNota);
+
+
+    system("pause");
+}
