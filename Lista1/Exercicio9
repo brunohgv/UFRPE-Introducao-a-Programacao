@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* 9) Em certa escola, para ser aprovado por média o aluno precisa ter média maior ou igual a cinco caso
+
+contrário será reprovado por média. Caso o aluno seja aprovado por média ainda é necessário que ele não
+
+ultrapasse o limite máximo de 7 faltas, ou seja, caso tenha mais de 7 faltas o aluno será reprovado por
+
+falta. Construa um programa que leia e armazene o nome, as três notas e a quantidade de faltas
+
+do aluno. Depois calcule a média aritmética e diga se o aluno (nome) está aprovado ou reprovado (caso
+
+esteja reprovado imprima o motivo da reprovação) e a média do aluno. Não se esqueça de validar os
+
+valores de notas e faltas. */
+
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	
+	char nome[50];
+	int faltas;
+	float nota1, nota2, nota3, media;
+	
+	printf("Nome do aluno: ");
+	gets(nome);
+	fflush(stdin);
+	printf("Número de faltas: ");
+	scanf("%i", &faltas);
+	printf("Primeira Nota:");
+	scanf("%f", &nota1);
+	fflush(stdin);
+	printf("Segunda Nota:");
+	scanf("%f", &nota2);
+	fflush(stdin);
+	printf("Terceira Nota:");
+	scanf("%f", &nota3);
+	fflush(stdin);
+	
+	media = (nota1 + nota2 + nota3)/(float)2;
+	
+	if(media < 7 && faltas <= 7)
+	{
+		printf("\nO aluno %s foi reprovado por média.\n", nome);
+	}
+	if(media < 7 && faltas > 7)
+	{
+		printf("\nO aluno %s foi reprovado por média e por faltas.\n", nome);
+	}
+	if(media >= 7 && faltas <= 7)
+	{
+		printf("\nO aluno %s foi aprovado.\n", nome);
+	}
+	if(media >= 7 && faltas > 7)
+	{
+		printf("\nO aluno %s foi reprovado por faltas.\n", nome);
+	}
+	
+    system("pause");
+	
+	return 0;
+}
