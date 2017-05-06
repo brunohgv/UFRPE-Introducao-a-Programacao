@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+
+    int fator;
+    int resposta = 1;
+
+    printf("Digite o numero para saber o fatorial\n");
+    scanf("%i", &fator);
+    while (fator >= 1)
+    {
+        resposta = resposta * fator;
+        fator = fator - 1;
+    }
+
+    printf("O resultado é: %i", resposta);
+
+    return 0;
+
+    system("pause");
+}
