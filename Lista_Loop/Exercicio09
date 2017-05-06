@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* 
+
+Fazer um programa em C para:
+9)
+A Federação Pernambucana de Futebol gostaria de realizar uma estatística sobre os jogadores que
+participaram do campeonato Pernambucano de 2013. Para auxiliar neste processo escreva um programa
+a) Ler o número de times que participam do campeonato (exigir que este número seja maior que zero);
+b) Ler de forma repetitiva, para cada time (cada time possui 11 jogadores), as características dos seus
+jogadores: (1) Idade; (2) Altura; (3) Peso;
+c) Calcular e imprimir na tela a média de idade dos jogadores de cada time;
+d) Ao final da leitura dos dados, calcular e imprimir na tela: (1) a média de altura de todos os jogadores do
+campeonato; (2) a quantidade de jogadores do campeonato com menos de 18 anos; e (3) o percentual de
+jogadores do campeonato com mais de 80 quilos. */
+
+int main() {
+	
+	setlocale(LC_ALL, "portuguese");
+	
+	int numTimes;
+	int i;
+	int j;
+	int k;
+	int idade[11];
+	float altura[11];
+	float peso[11];
+	int idadeTotal[50];
+	float alturaTotal[50];
+	float mediaIdade[50];
+	float mediaPeso[50];
+	int numJogadores = 11;
+	int menor18 = 0;
+	int maior80 = 0;
+	float pctMaior80;
+	float somaAltura;
+	float mediaAlturaTotal;
+	
+	do
+	{
+	printf("Digite a quantidade de times no campeonato: ");
+	scanf("%i", &numTimes);
+		if(numTimes <= 0)
+		{
+			printf("\nNúmero inválido\n\n ");
+		}
+	}while(numTimes < 1);
+	
+	for(j = 0; j < numTimes ; j++)
+	{
+		for(i = 0; i < numJogadores ; i++)
+		{
+			printf("\nInforme a idade do %iº jogador do %iº time: ", i+1, j+1);
+			scanf("%i", &idade[i]);
+			fflush(stdin);
+			printf("Informe a altura do %iº jogador do %iº time: ", i+1, j+1);
+			scanf("%f", &altura[i]);
+			fflush(stdin);
+			printf("Informe o peso do %iº jogador do %iº time: ", i+1, j+1);
+			scanf("%f", &peso[i]);
+			fflush(stdin);
+				if(idade[i] < 18)
+				{
+					menor18++;
+				}
+				if(peso[i] > 80)
+				{
+					maior80++;
+				}
+			
+			
+			idadeTotal[j] = idadeTotal[j] + idade[i];
+			alturaTotal[j] = alturaTotal[j] + altura[i];
+			
+			system("cls");
+		}
+		mediaIdade[j] = (float)idadeTotal[j]/(float)numJogadores;
+		somaAltura = somaAltura + alturaTotal[j];
+	}	
+	
+	mediaAlturaTotal = somaAltura/(numTimes*numJogadores);
+	
+	pctMaior80 = 100 * (float)maior80/((float)numTimes*(float)numJogadores);
+	
+	for(k = 0; k < numTimes ; k++)
+	{
+		printf("A média das idades do %iº time é: %f\n", k+1, mediaIdade[k]);
+	}
+		printf("A média da altura de todos os jogadores é: %.2f\nO número de Jogadores com menos de 18 anos é: %i\nA porcentagem de jogadores com mais de 80Kg é: %f", mediaAlturaTotal, menor18, pctMaior80);
+		
+	system("pause");
+	return 0;
+}
