@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+
+    int count = 0;
+    char NOME[50];
+
+    printf("Digite seu nome:\n");
+    gets(NOME);
+
+    while (count < 10)
+    {
+        printf("Olá, %s!\n", NOME);
+        count++;
+    }
+    system("pause");
+    return 0;
+}
