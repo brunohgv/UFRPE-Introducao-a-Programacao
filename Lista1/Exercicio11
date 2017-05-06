@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+/*
+Um ciclone tropical consiste em uma tempestade muito violenta que, sob determinadas condições,
+
+adquire um movimento de rotação em torno de uma região de baixa pressão atmosférica. Um ciclone
+
+pode atingir um diâmetro de até 500 km. Furacões são os mais violentos desses ciclones e chegam a
+
+produzir ventos de até 320 km/h. Na tabela abaixo, são apresentados alguns dados relativos à classificação
+
+dos furacões segundo a escala Saffir-Simpson:
+
+Classificação Velocidade dos ventos (km/h)
+
+tempestade tropical 62 a 118
+
+furacão de categoria 1 119 a 153
+
+furacão de categoria 2 154 a 177
+
+furacão de categoria 3 178 a 209
+
+furacão de categoria 4 210 a 249
+
+furacão de categoria 5 maior que 249
+
+Escreva um que leia a velocidade do vento aferida durante uma tempestade e apresente
+
+ao usuário a classificação do furacão caso a tempestade possa ser classificada como tal.
+
+*/
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	
+    int velocidade;
+
+    printf("Informe a velocidade do vento aferida em Km/h: \n");
+    scanf("%i", &velocidade);
+
+    if(velocidade >= 62 && velocidade <= 118)
+    {
+        printf("tempestade tropical\n");
+    }
+    else if(velocidade >= 119 && velocidade <= 153)
+    {
+        printf("furacão de categoria 1\n");
+    }
+    else if(velocidade >= 154 && velocidade <= 177)
+    {
+        printf("furacão de categoria 2\n");
+    }
+    else if(velocidade >= 178 && velocidade <= 209)
+    {
+        printf("furacão de categoria 3\n");
+    }
+    else if(velocidade >= 210 && velocidade <= 249)
+    {
+        printf("furacão de categoria 4\n");
+    }
+    else if(velocidade >= 250)
+    {
+        printf("furacão de categoria 5\n");
+    }
+    else
+    {
+        printf("Não classificado\n");
+    }
+    
+    system("pause");
+    return 0;
+}
