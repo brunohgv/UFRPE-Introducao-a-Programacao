@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/*
+8)Fazer um programa em C para:
+a) Em processo repetitivo ler o nome, altura e peso dos a alunos de uma turma. Calcule o Índice de Massa
+Corpórea – IMC (Peso/Altura²) e armazene nas variáveis NMAX e IMCMAX o nome e o IMC do aluno que
+obteve maior valor para o IMC;
+Obs.: i) Se existir mais que um aluno com IMC iguais, armazenar para o valor máximo, o IMC e o nome do
+primeiro aluno considerado;
+ ii) O processo de repetição termina quando for digitado a palavra “FIM” para o nome do aluno, o qual
+não é considerado para o cálculo do IMC.
+b) Imprimir NMAX e IMCMAX em linhas diferentes
+*/
+
+int main()
+{
+	
+	char nome[50];
+	float altura;
+	float peso;
+	float imc;
+	char NMAX[50];
+	float IMCMAX;
+	char fim[5] = "fim";
+	int i;
+	
+	while (strcmp(nome, "fim") != 0)
+	{
+		printf("Informe o nome:");
+		gets(nome);
+		fflush(stdin);
+		if (strcmp(nome, "fim") != 0)
+		{
+			printf("Informe a altura: ");
+			scanf("%f", &altura);
+			fflush(stdin);
+			printf("Informe o peso: ");
+			scanf("%f", &peso);
+			fflush(stdin);
+			
+			imc = (peso/(altura*altura));
+			if(imc > IMCMAX)
+			{
+				IMCMAX = imc;
+				strcpy(NMAX, nome); 
+			}
+			system("cls");
+		}
+	}
+	
+	printf("Maior IMC:\n%s com %f de IMC\n\n", NMAX, IMCMAX);
+	
+	system("pause");
+	return 0;
+}
