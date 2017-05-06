@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "portuguese");
+
+    float precoTablet;
+    float vendidos;
+    float totalRecebido;
+    float lucro;
+    float custoTotal;
+    float custoProducao = 300;
+
+    printf("Informe o preço do tablet:\n");
+    scanf("%f", &precoTablet);
+    fflush(stdin);
+    while(precoTablet < 0)
+    {
+        printf("Informe o preço do tablet:\n");
+        printf("Erro. Digite um valor válido");
+        scanf("%f", &precoTablet);
+        fflush(stdin);
+    }
+    printf("Informe o número de unidades vendidas:\n");
+    scanf("%f", &vendidos);
+    fflush(stdin);
+
+    totalRecebido = precoTablet * vendidos;
+    custoTotal = custoProducao * vendidos;
+    lucro = totalRecebido - custoTotal;
+
+    if(lucro > 0)
+    {
+        printf("Total recebido: R$%.2f\nCusto de produção: R$%.2f\nLucro de: R$%.2f\n", totalRecebido, custoTotal, lucro);
+    }
+    else if(lucro == 0)
+    {
+        printf("Total recebido: R$%.2f\nCusto de produção: R$%.2f\nLucro total: Não houve lucro\n", totalRecebido, custoTotal);
+    }
+    else
+    {
+        printf("Total recebido: R$%.2f\nCusto de produção: R$%.2f\nDéficit de: R$%.2f\n", totalRecebido, custoTotal, -lucro);
+    }
+
+    system("pause");
+
+    return 0;
+}
