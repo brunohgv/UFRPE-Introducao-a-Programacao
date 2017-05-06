@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* 7) Foi feita uma pesquisa para determinar o perfil dos alunos que ingressaram em engenharia na UFPE
+num determinado semestre. Faça um programa que:
+a) Leia inicialmente o número total de alunos que prestaram vestibular para engenharia no semestre.
+b) Leia em seguida, um número indeterminado de alunos que passaram no vestibular. Cada linha contém o
+sexo do aluno(‘m’ para masculindo e ‘f’ para feminino) e o número de vezes que este aluno prestou
+vestibular. A última linha, que não entrará nos cálculos, contém no lugar do sexo a letra ‘x’, este é o “sinal”
+para parar de ler os dados.
+c) Determine e imprima:
+- A quantidade de alunos que passaram no vestibular.
+- A porcentagem de alunos do sexo masculino que passaram no vestibular.
+- A porcentagem de alunos, independentemente do sexo, que prestou vestibular 3 ou mais vezes no
+período. */
+
+int main() 
+{
+	
+	int totalAlunos;
+	char sexo;
+	int masculino;
+	int total;
+	int vezesVest;
+	int countVest = 0;
+	int aprovados = 0;
+	float porcMasculino;
+	float porcVest3x;
+	float pct = 100;
+	
+	printf("Informe o número de alunos que prestaram vestibular: \n");
+	scanf("%i", &totalAlunos);
+	fflush(stdin);
+	
+	while(sexo != 'x')
+	{
+		printf("\nInforme o sexo. \n\"m\" para Masculino, \"f\" para Feminino ou \"x\" para sair:\n");
+		scanf("%c", &sexo);
+		fflush(stdin);
+			if(sexo != 'x')
+			{
+				if(sexo == 'm')
+				{
+				masculino++;
+				}
+			printf("\nQuantidade de vezes que prestou vestibular: ");
+			scanf("%i", &vezesVest);
+			fflush(stdin);
+				if(vezesVest >= 3)
+				{
+					countVest++;
+				}
+			aprovados++;	
+			}
+	}
+	
+	porcMasculino = pct * (float)masculino / (float)totalAlunos;
+	
+	porcVest3x = pct * (float)countVest / (float)totalAlunos;
+	
+	printf("Alunos aprovados: %i\nPorcentagem de alunos do sexo masculino: %.2f\nPorcentagem de alunos que prestaram vestibular 3 ou mais vezes: %.2f", aprovados, porcMasculino, porcVest3x);
+
+	return 0;
+	
+    system("pause");
+}
