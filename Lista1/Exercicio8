@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* 8) Calcular as áreas das seguintes figuras geométricas: quadrado, retângulo, triângulo, trapézio e
+
+círculo. Deverá ser exibido um menu para que o usuário escolha qual figura quer calcular a área. Após
+
+escolhida a figura deverão ser pedidas as entradas necessárias para o cálculo.
+
+1 - Círculo
+
+Entrada: Raio
+
+2 - Retângulo
+
+Entrada: Lados
+
+3 - Quadrado
+
+Entrada: Lado
+
+4 - Trapézio
+
+Entrada: Bases e Altura
+
+5 - Triângulo
+
+Entrada: Base e Altura */
+
+void linha()
+{
+	int i;
+	for (i = 0; i < 30; i++)
+	{
+		printf("*");
+	}
+	printf("\n");
+}
+
+int main() 
+{
+	setlocale(LC_ALL, "portuguese");
+	
+	float r;
+	float lado;
+	float w;
+	float W;
+	float h;
+	int seletor;
+	float pi = 3.1415;
+	float area;
+	char unidade[5];
+	
+	printf("Vamos calcular área de figuras planas \n\n");
+	
+	while(seletor != 6)
+	{	
+	linha();
+	printf("\nEscolha qual forma geométrica deseja calcular:\n1 - Círculo\n2 - Retângulo\n3 - Quadrado\n4 - Trapézio\n5 - Triângulo\n6 - Sair\n\n");
+	linha();
+	scanf("%i", &seletor);
+	fflush(stdin);
+	system("cls");
+	
+	if(seletor == 1)
+	{
+		printf("Você selecionou Círculo.\nInforme a unidade de medida: ");
+		gets(unidade);
+		fflush(stdin);
+		printf("Agora informe o raio: ");
+		scanf("%f", &r);
+		fflush(stdin);
+		
+		
+		area = pi*(r*r);
+		printf("A área do círculo é de: %.2f%s²\n\n", area, unidade);
+		
+		system("pause");
+		system("cls");
+	}
+	else if(seletor == 2)
+	{
+		printf("Você selecionou retângulo.\nInforme a unidade de medida: ");
+		gets(unidade);
+		fflush(stdin);
+		printf("Agora informe a largura: ");
+		scanf("%f", &w);
+		fflush(stdin);
+		printf("Altura: ");
+		scanf("%f", &h);
+		fflush(stdin);
+		
+		area = (float)w*h;
+		
+		printf("A área do retângulo é de: %.2f%s²\n\n", area, unidade);
+		
+		system("pause");
+		system("cls");
+	}
+	else if(seletor == 3)
+	{
+		printf("Você selecionou quadrado.\nInforme a unidade de medida: ");
+		gets(unidade);
+		fflush(stdin);
+		printf("Agora informe a lado: ");
+		scanf("%f", &lado);
+		fflush(stdin);
+				
+		area = (float)lado*lado;
+		
+		printf("A área do quadrado é de: %.2f%s²\n\n", area, unidade);
+				
+		system("pause");
+		system("cls");
+	}
+	else if(seletor == 4)
+	{
+		printf("Você selecionou trapézio.\nInforme a unidade de medida: ");
+		gets(unidade);
+		fflush(stdin);
+		printf("Agora informe a base maior: ");
+		scanf("%f", &W);
+		fflush(stdin);
+		printf("Base menor: ");
+		scanf("%f", &w);
+		fflush(stdin);
+		printf("Altura: ");
+		scanf("%f", &h);
+		fflush(stdin);
+		
+		area = (W + w)*h/(float)2.0;
+		
+		printf("A área do trapézio é de: %.2f%s²\n\n", area, unidade);
+				
+		system("pause");
+		system("cls");
+	}	
+	else if(seletor == 5)
+	{
+		printf("Você selecionou triângulo.\nInforme a unidade de medida: ");
+		gets(unidade);
+		fflush(stdin);
+		printf("Agora informe a base: ");
+		scanf("%f", &w);
+		fflush(stdin);
+		printf("Altura: ");
+		scanf("%f", &h);
+		fflush(stdin);
+		
+		area = w*h/(float)2.0;
+		
+		printf("A área do triângulo é de: %.2f%s²\n\n", area, unidade);
+				
+		system("pause");
+		system("cls");
+	}
+	else if(seletor == 6)
+	{
+	}
+	else
+	{
+		printf("Opção inválida.");
+	}
+	}
+
+	printf("Obrigado por usar nossa calculadora!\n");
+	
+	
+    system("pause");
+	return 0;
+}
