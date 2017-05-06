@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+/* Crie um programa que receba como entrada a hora e os minutos do dia, o nome do cliente e seu
+
+sexo. A partir desses dados, gere na saída do programa (tela) uma saudação que diga:
+
+? "Bom dia", "Boa tarde" ou "Boa noite", dependendo da hora do dia, seguido de vírgula.
+
+? "senhor" ou "senhora", dependendo do sexo do(a) cliente.
+
+? O nome do(a) cliente, seguido de exclamação.
+
+? A frase "Em que posso ajudar?"
+
+Obs: A manhã se inicia as 00:00 e vai até 11:59.
+
+A tarde se inicia às 12:00 e vai até 17:59
+
+A noite se inicia às 18:00 e vai até 23:59 */
+
+int main() 
+{
+	setlocale(LC_ALL, "portuguese");
+	
+	int horas;
+	int minutos;
+	char nome[50];
+	char sexo;
+	
+	printf("Informe as horas: ");
+	scanf("%i", &horas);
+	printf("Informe os minutos: ");
+	scanf("%i", &minutos);
+	fflush(stdin);
+	printf("\nNos diga seu nome: ");
+	gets(nome);
+	fflush(stdin);
+	printf("Informe seu sexo\nm - masculino\nf - feminino\n");
+	scanf("%c", &sexo);
+	
+	if(horas >= 0 && horas <12)
+	{
+		printf("Bom dia, ");
+	}
+	else if(horas >= 12 && horas < 18)
+	{
+		printf("Boa tarde, ");
+	}
+	else if(horas >= 18 && horas < 24)
+	{
+		printf("Boa noite, ");
+	}
+	
+	if(sexo == 'm' || sexo == 'M')
+	{
+		printf("senhor ");	
+	}
+	else if(sexo == 'm' || sexo == 'M')
+	{
+		printf("senhora ");
+	}
+	printf("%s! ", nome);
+	printf("Em que posso ajudar?\n");
+	
+    system("pause");
+	return 0;
+}
