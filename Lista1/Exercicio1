@@ -17,11 +17,11 @@ int main()
 	
 	if(num1 > num2)
 	{
-		printf("\nO maior é %i", num1);
+		printf("\nO maior é %i\n", num1);
 	}
 	else
 	{
-		printf("\nO maior é %i", num2);
+		printf("\nO maior é %i\n", num2);
 	}
 	
 	
