@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+/* Faça um Programa que verifique se uma letra digitada é "F" ou "M". Conforme a letra, escrever na
+tela: F - Feminino, M - Masculino, Sexo Inválido. */
+
+int main() {
+	setlocale(LC_ALL, "portuguese");
+	
+	char sexo;
+	
+	printf("Digite \"F\" ou \"M\"\n\n");
+	scanf("%c", &sexo);
+	
+	if(sexo == 'f' || sexo == 'F')
+	{
+		printf("\nF - Feminino\n\n");
+	}
+	else if(sexo == 'm' || sexo == 'M')
+	{
+		printf("\nM - Masculino\n\n");
+	}
+	else
+	{
+		printf("\nSexo inválido\n\n");
+	}
+	
+	system("pause");
+	
+	return 0;
+}
